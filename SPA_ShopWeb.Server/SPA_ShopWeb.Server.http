@@ -1,0 +1,6 @@
+@SPA_ShopWeb.Server_HostAddress = http://localhost:5019
+
+GET {{SPA_ShopWeb.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
