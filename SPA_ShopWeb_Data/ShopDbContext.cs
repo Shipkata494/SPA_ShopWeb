@@ -18,7 +18,7 @@ public partial class ShopDbContext : DbContext
     public virtual DbSet<Item> Items { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-RNDBM95\\SQLEXPRESS;Database=ShopDb;Trusted_Connection=true;Integrated Security=true;TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-1M168L7;Database=ShopDb;Trusted_Connection=true;Integrated Security=true;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

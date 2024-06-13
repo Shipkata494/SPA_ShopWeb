@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SPA_ShopWeb_Data\SPA_ShopWeb_Data.csproj" />
+    <ProjectReference Include="..\SPA_ShopWeb_Models\SPA_ShopWeb_Models.csproj" />
+  </ItemGroup>
+
 </Project>
