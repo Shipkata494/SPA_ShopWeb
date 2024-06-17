@@ -20,7 +20,8 @@ namespace SPA_ShopWeb.Server.Controllers
         [HttpGet("/items")]
         public IEnumerable<ItemViewModel> Get()
         {
-            return itemService.GetAllItems();
+            var items = itemService.GetAllItems();
+            return items;
         }
     }
 }

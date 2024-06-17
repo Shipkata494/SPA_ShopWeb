@@ -19,9 +19,10 @@ namespace SPA_ShopWeb_Services
         }
         public IEnumerable<ItemViewModel> GetAllItems()
         {
+
             var items = dbContext.Items.Select(i => new ItemViewModel 
             {
-                ImageData = i.ImageData,
+                Id = i.Id,
                 Price = i.Price,
                 ContentType = i.ContentType,
             }).ToList();

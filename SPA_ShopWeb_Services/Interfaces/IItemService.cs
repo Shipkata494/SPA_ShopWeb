@@ -11,4 +11,5 @@ namespace SPA_ShopWeb_Services.Interfaces
     {
         IEnumerable<ItemViewModel>GetAllItems();
     }
+
 }
