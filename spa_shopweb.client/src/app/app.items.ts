@@ -12,8 +12,8 @@ interface Item {
 }
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.items.html',
+  styleUrls: ['./app.items.css']
 })
 export class AppComponent implements OnInit {
   items: Item[] = [];
