@@ -15,6 +15,7 @@ interface Item {
   templateUrl: './app.items.html',
   styleUrls: ['./app.items.css']
 })
+
 export class AppComponent implements OnInit {
   items: Item[] = [];
   sth: MyData | undefined;
@@ -47,5 +48,36 @@ export class AppComponent implements OnInit {
       }
     );
   }
+
+  OnHoverElement(event: Event,s:string) {
+    const target = event.target as HTMLInputElement;
+    let a = document.createElement('div');
+    a.className = 'item-description';
+    const cssString = `
+    transition: opacity 0.5s linear, visibility 0.5s linear;
+    background-color: lightblue;
+    height: 100px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+  `;
+    a.style.cssText = cssString;
+    a.textContent = s;
+    requestAnimationFrame(() => {
+      a.style.opacity = '1'; 
+      a.style.visibility = 'visible';
+    });
+      target.appendChild(a);
+      target.addEventListener('mouseleave', () => {
+        a.style.opacity = '0'; 
+        a.style.visibility = 'hidden'; 
+        setTimeout(() => {
+          target.removeChild(a);
+        }, 500);
+      });    
+  }
 }
+
 

@@ -3,12 +3,11 @@
   <em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em>
 </p>
 <div style="text-align:center"><img src="../assets/laser.jpg" class="laser-image"></div>
-<div class="product-container">
-  <div *ngFor="let item of items" class="product">
+<div class="container">
+  <div *ngFor="let item of items">
     <div *ngIf="item">
-      <img src="../assets/{{item.imageData}}" alt="Sth" class="product" />
-      <p class="price">{{ item.price | currency }}</p>
+      <div class="image" (mouseenter)="OnHoverElement($event,item.contentType)"><img src="../assets/{{item.imageData}}" alt="Sth" /></div>
     </div>
-    <button class="buy-button">КУПИ</button>
   </div>
 </div>
+
