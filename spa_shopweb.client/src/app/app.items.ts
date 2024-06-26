@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 interface Item {
   id: string;
+  title: string;
   price: number;
   contentType: string;
   imageData: string;
@@ -11,19 +13,23 @@ interface Item {
   Value: string[];
 }
 @Component({
-  selector: 'app-root',
+  selector: 'items',
   templateUrl: './app.items.html',
   styleUrls: ['./app.items.css']
 })
 
-export class AppComponent implements OnInit {
+export class ItemComponent implements OnInit {
   items: Item[] = [];
   sth: MyData | undefined;
   a: string[] = [];
-  constructor(private http: HttpClient) { }
+  title = 'AngularRouting';
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
     this.returnImages();
     this.getItems();
+    this.activatedRoute.fragment.subscribe((fragment: string | null) => {
+      if (fragment) this.jumpToSection(fragment);
+    });
   }
   getAssetsList(): Observable<MyData> {
     return this.http.get<MyData>('assets/assets-list.json');
@@ -52,31 +58,21 @@ export class AppComponent implements OnInit {
   OnHoverElement(event: Event,s:string) {
     const target = event.target as HTMLInputElement;
     let a = document.createElement('div');
-    a.className = 'item-description';
     const cssString = `
-    transition: opacity 0.5s linear, visibility 0.5s linear;
-    background-color: lightblue;
-    height: 100px;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
+    display:inline-block;
+    float:left;
+    font-size: 15px;
+    color: red;
   `;
     a.style.cssText = cssString;
     a.textContent = s;
-    requestAnimationFrame(() => {
-      a.style.opacity = '1'; 
-      a.style.visibility = 'visible';
-    });
       target.appendChild(a);
       target.addEventListener('mouseleave', () => {
-        a.style.opacity = '0'; 
-        a.style.visibility = 'hidden'; 
-        setTimeout(() => {
           target.removeChild(a);
-        }, 500);
       });    
+  }
+  jumpToSection(section: string | null) {
+    if (section) document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
   }
 }
 

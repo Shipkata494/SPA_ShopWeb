@@ -25,6 +25,7 @@ namespace SPA_ShopWeb_Services
                 Id = i.Id,
                 Price = i.Price,
                 ContentType = i.ContentType,
+                Title = i.Title,
             }).ToList();
             return items;
         }

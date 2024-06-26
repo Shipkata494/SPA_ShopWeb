@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IItemService,ItemService>();
+builder.Services.AddScoped<IGalleryService, GalleryService>();
 builder.Services.AddDbContext<ShopDbContext>(options =>
     options.UseSqlServer("Server=DESKTOP-1M168L7;Database=ShopDb;Trusted_Connection=true;Integrated Security=true;TrustServerCertificate=true"));
 var app = builder.Build();

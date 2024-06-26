@@ -10,6 +10,7 @@ namespace SPA_ShopWeb_Models
     public class ItemViewModel
     {
         public Guid Id { get; set; }
+        public string? Title { get; set; }
 
         public string? ImageData { get; set; }
 

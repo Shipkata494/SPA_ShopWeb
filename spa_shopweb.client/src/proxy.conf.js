@@ -6,6 +6,7 @@ const PROXY_CONFIG = [
   {
     context: [
       "/items",
+      "/gallery"
     ],
     target,
     secure: false
