@@ -5,12 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ItemComponent } from './app.items';
 import { GalleryComponent } from './app.gallery';
-import { NavComponent } from './app.nav';
+import { HeadComponent } from './app.head';
+import { NavComponent } from './app.nav'
 
 @NgModule({
   declarations: [
     ItemComponent,
     GalleryComponent,
+    HeadComponent,
     NavComponent
   ],
   imports: [
@@ -18,6 +20,6 @@ import { NavComponent } from './app.nav';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [ItemComponent, GalleryComponent, NavComponent]
+  bootstrap: [ItemComponent, GalleryComponent, HeadComponent, NavComponent]
 })
 export class AppModule { }
